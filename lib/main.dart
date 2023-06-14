@@ -413,8 +413,8 @@ class _FifthPageState extends State<FifthPage> {
             Center(
                 child: Image.asset(
                   'web/assets/yinyuan.webp',
-                  width: 1000,
-                  height: 1000,
+                  width: 300,
+                  height: 300,
                 ),
               ),
             TextField(

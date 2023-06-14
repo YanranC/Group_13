@@ -72,23 +72,33 @@ class _SecondPageState extends State<SecondPage> {
       appBar: AppBar(
         title: Text('仅需6元，为佛祖更换皮肤！'),
       ),
-      body: Column(
-        children: [
-          Image.asset('assets/vCode.png'),
-          SizedBox(height: 20),
-          _isCompleted
-              ? Image.asset('assets/buddha1.png')
-              : Image.asset('assets/buddha2.png'),
-          SizedBox(height: 20),
-          ElevatedButton(
-            onPressed: _handleButtonPressed,
-            child: Text('我已完成充值'),
-          ),
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Image.asset('web/assets/vCode.png'),
+            SizedBox(height: 20),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  _isCompleted
+                      ? Image.asset('web/assets/buddha1.png')
+                      : Image.asset('web/assets/buddha2.png'),
+                ],
+              ),
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: _handleButtonPressed,
+              child: Text('我已完成充值'),
+            ),
+          ],
+        ),
       ),
     );
   }
 }
+
 
 class ThirdPage extends StatefulWidget {
   @override

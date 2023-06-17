@@ -22,6 +22,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   String backgroundImage = 'web/assets/temple.png';
+  int merit = 0;
 
   void changeBackgroundImage() {
     showDialog(
@@ -66,6 +67,12 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+  void incrementMerit() {
+    setState(() {
+      merit += 1;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -83,6 +90,17 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Stack(
           alignment: Alignment.center,
           children: [
+            Positioned(
+              top: 100,
+              child: Text(
+                '功德: $merit',
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+            ),
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -153,6 +171,16 @@ class _MyHomePageState extends State<MyHomePage> {
                   ],
                 ),
               ],
+            ),
+            GestureDetector(
+              onTap: () {
+                incrementMerit(); // 点击增加功德
+              },
+              child: Image.asset(
+                'web/assets/R.png',
+                width: 200,
+                height: 200,
+              ),
             ),
           ],
         ),

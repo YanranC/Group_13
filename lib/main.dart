@@ -35,7 +35,9 @@ class _MyHomePageState extends State<MyHomePage> {
             mainAxisSize: MainAxisSize.min,
             children: [
               Text('是否确定充值68元更换西天极乐世界背景装饰？'),
-              SizedBox(height: 20),
+              SizedBox(
+                height: 20,
+              ),
               Center(
                 child: Image.asset(
                   'web/assets/vCode.png',
@@ -105,68 +107,97 @@ class _MyHomePageState extends State<MyHomePage> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => SecondPage()),
-                        );
-                      },
-                      child: Text('首充6元更换佛祖皮肤'),
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 16.0),
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => SecondPage()),
+                            );
+                          },
+                          child: Text('首充6元更换佛祖皮肤'),
+                        ),
+                      ),
                     ),
-                    ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => ThirdPage()),
-                        );
-                      },
-                      child: Text('充值999元获得神仙保佑'),
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ThirdPage()),
+                            );
+                          },
+                          child: Text('充值999元获得神仙保佑'),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.only(right: 16.0),
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => FourthPage()),
+                            );
+                          },
+                          child: Text('邀请五名好友注册免费领取十八金身罗汉，功德×1.25'),
+                        ),
+                      ),
                     ),
                   ],
                 ),
+                SizedBox(height: 16),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    ElevatedButton(
-                      onPressed: () {
-                        changeBackgroundImage(); // 更换背景图像
-                      },
-                      child: Text('充值68元更换西天极乐世界背景装饰'),
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 16.0),
+                        child: ElevatedButton(
+                          onPressed: () {
+                            changeBackgroundImage(); // 更换背景图像
+                          },
+                          child: Text('充值68元更换西天极乐世界背景装饰'),
+                        ),
+                      ),
                     ),
-                    ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => ForthPage()),
-                        );
-                      },
-                      child: Text('邀请五名好友注册免费领取十八金身罗汉，功德×1.25'),
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => FifthPage()),
+                            );
+                          },
+                          child: Text('一元求姻缘'),
+                        ),
+                      ),
                     ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => FifthPage()),
-                        );
-                      },
-                      child: Text('一元求姻缘'),
-                    ),
-                    ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => SixthPage()),
-                        );
-                      },
-                      child: Text('今日特价：期末周大学生专享考试加分福利！'),
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.only(right: 16.0),
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => SixthPage()),
+                            );
+                          },
+                          child: Text('今日特价：期末周大学生专享考试加分福利！'),
+                        ),
+                      ),
                     ),
                   ],
                 ),
@@ -286,12 +317,12 @@ class _ThirdPageState extends State<ThirdPage> {
   }
 }
 
-class ForthPage extends StatefulWidget {
+class FourthPage extends StatefulWidget {
   @override
-  _ForthPageState createState() => _ForthPageState();
+  _FourthPageState createState() => _FourthPageState();
 }
 
-class _ForthPageState extends State<ForthPage> {
+class _FourthPageState extends State<FourthPage> {
   bool _friend1Selected = false;
   bool _friend2Selected = false;
   bool _friend3Selected = false;

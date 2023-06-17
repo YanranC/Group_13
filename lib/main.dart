@@ -80,68 +80,81 @@ class _MyHomePageState extends State<MyHomePage> {
             fit: BoxFit.cover,
           ),
         ),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => SecondPage()),
-                  );
-                },
-                child: Text('首充6元更换佛祖皮肤'),
-              ),
-              SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => ThirdPage()),
-                  );
-                },
-                child: Text('充值999元获得神仙保佑'),
-              ),
-              SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () {
-                  changeBackgroundImage(); // 更换背景图像
-                },
-                child: Text('充值68元更换西天极乐世界背景装饰'),
-              ),
-              SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => ForthPage()),
-                  );
-                },
-                child: Text('邀请五名好友注册免费领取十八金身罗汉，功德×1.25'),
-              ),
-              SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => FifthPage()),
-                  );
-                },
-                child: Text('一元求姻缘'),
-              ),
-              SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => SixthPage()),
-                  );
-                },
-                child: Text('今日特价：期末周大学生专享考试加分福利！'),
-              ),
-            ],
-          ),
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => SecondPage()),
+                        );
+                      },
+                      child: Text('首充6元更换佛祖皮肤'),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => ThirdPage()),
+                        );
+                      },
+                      child: Text('充值999元获得神仙保佑'),
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        changeBackgroundImage(); // 更换背景图像
+                      },
+                      child: Text('充值68元更换西天极乐世界背景装饰'),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => ForthPage()),
+                        );
+                      },
+                      child: Text('邀请五名好友注册免费领取十八金身罗汉，功德×1.25'),
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => FifthPage()),
+                        );
+                      },
+                      child: Text('一元求姻缘'),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => SixthPage()),
+                        );
+                      },
+                      child: Text('今日特价：期末周大学生专享考试加分福利！'),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );
@@ -411,12 +424,12 @@ class _FifthPageState extends State<FifthPage> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Center(
-                child: Image.asset(
-                  'web/assets/yinyuan.webp',
-                  width: 300,
-                  height: 300,
-                ),
+              child: Image.asset(
+                'web/assets/yinyuan.webp',
+                width: 300,
+                height: 300,
               ),
+            ),
             TextField(
               controller: _controller,
               decoration: InputDecoration(
@@ -450,6 +463,7 @@ class _FifthPageState extends State<FifthPage> {
     );
   }
 }
+
 class SixthPage extends StatefulWidget {
   @override
   _SixthPageState createState() => _SixthPageState();

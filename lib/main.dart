@@ -418,7 +418,7 @@ class _FourthPageState extends State<FourthPage> {
                 Image.asset(
                   'web/assets/eighteenarhats.png',
                   width: 800,
-                  height: 500,
+                  height: 800,
                 ),
               ],
             ),

@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -20,9 +22,10 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
+int merit = 0;
+
 class _MyHomePageState extends State<MyHomePage> {
   String backgroundImage = 'web/assets/temple.png';
-  int merit = 0;
 
   void changeBackgroundImage() {
     showDialog(
@@ -72,6 +75,12 @@ class _MyHomePageState extends State<MyHomePage> {
   void incrementMerit() {
     setState(() {
       merit += 1;
+    });
+  }
+
+  void updateMerit(int newMerit) {
+    setState(() {
+      merit = newMerit;
     });
   }
 
@@ -226,7 +235,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => FourthPage()),
+                          MaterialPageRoute(builder: (context) => FourthPage(onMeritUpdate: updateMerit)),
                         );
                       },
                       child: Text('去邀请！'),
@@ -468,10 +477,23 @@ class _ThirdPageState extends State<ThirdPage> {
 
 class FourthPage extends StatefulWidget {
   @override
+  final ValueSetter<int> onMeritUpdate; // 新增一个 ValueSetter 属性
+
+  FourthPage({required this.onMeritUpdate}); // 接收 onMeritUpdate 参数
+
+  @override
   _FourthPageState createState() => _FourthPageState();
 }
 
 class _FourthPageState extends State<FourthPage> {
+
+  void updateMerit() {
+    if (_allFriendsSelected) {
+      int newMerit = (merit * 1.25).round();
+      widget.onMeritUpdate(newMerit); // 调用 onMeritUpdate 方法，将新的 merit 值回传给主界面
+    }
+  }
+
   bool _friend1Selected = false;
   bool _friend2Selected = false;
   bool _friend3Selected = false;
@@ -508,46 +530,51 @@ class _FourthPageState extends State<FourthPage> {
                   setState(() {
                     _friend1Selected = !_friend1Selected;
                   });
+                  updateMerit();
                 },
                 friendName: '好友1',
               ),
-              SizedBox(width: 10), // 添加按钮之间的间距
+              SizedBox(width: 10),
               FriendButton(
                 isSelected: _friend2Selected,
                 onPressed: () {
                   setState(() {
                     _friend2Selected = !_friend2Selected;
                   });
+                  updateMerit();
                 },
                 friendName: '好友2',
               ),
-              SizedBox(width: 10), // 添加按钮之间的间距
+              SizedBox(width: 10),
               FriendButton(
                 isSelected: _friend3Selected,
                 onPressed: () {
                   setState(() {
                     _friend3Selected = !_friend3Selected;
                   });
+                  updateMerit();
                 },
                 friendName: '好友3',
               ),
-              SizedBox(width: 10), // 添加按钮之间的间距
+              SizedBox(width: 10),
               FriendButton(
                 isSelected: _friend4Selected,
                 onPressed: () {
                   setState(() {
                     _friend4Selected = !_friend4Selected;
                   });
+                  updateMerit();
                 },
                 friendName: '好友4',
               ),
-              SizedBox(width: 10), // 添加按钮之间的间距
+              SizedBox(width: 10),
               FriendButton(
                 isSelected: _friend5Selected,
                 onPressed: () {
                   setState(() {
                     _friend5Selected = !_friend5Selected;
                   });
+                  updateMerit();
                 },
                 friendName: '好友5',
               ),
@@ -565,7 +592,11 @@ class _FourthPageState extends State<FourthPage> {
                 Image.asset(
                   'web/assets/eighteenarhats.png',
                   width: 800,
-                  height: 800,
+                  height: 500,
+                ),
+                Text(
+                  '功德: $merit',
+                  style: TextStyle(fontSize: 24),
                 ),
               ],
             ),

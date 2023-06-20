@@ -1,5 +1,4 @@
 import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -27,50 +26,51 @@ int merit = 0;
 class _MyHomePageState extends State<MyHomePage> {
   String backgroundImage = 'web/assets/temple.png';
 
-  void changeBackgroundImage() {
-    showDialog(
-      context: context,
-      builder: (context) {
-        return AlertDialog(
-          title: Text('确认充值'),
-          content: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text('是否确定充值68元更换西天极乐世界背景装饰？'),
-              SizedBox(
-                height: 20,
-              ),
-              Center(
-                child: Image.asset(
-                  'web/assets/vCode.png',
-                  width: 300,
-                  height: 300,
-                ),
-              ),
-            ],
-          ),
-          actions: [
-            TextButton(
-              onPressed: () {
-                setState(() {
-                  backgroundImage = 'web/assets/pureland.png';
-                });
-                Navigator.of(context).pop();
-              },
-              child: Text('是'),
+void changeBackgroundImage() {
+  showDialog(
+    context: context,
+    builder: (context) {
+      return AlertDialog(
+        title: Text('确认充值'),
+        content: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text('是否确定充值68元更换西天极乐世界背景装饰？'),
+            SizedBox(
+              height: 20,
             ),
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: Text('否'),
+            Center(
+              child: Image.network(
+                'https://raw.githubusercontent.com/LittlePrince404/my_dataserver/main/YunfengVCode.png',
+                width: 300,
+                height: 300,
+              ),
             ),
           ],
-        );
-      },
-    );
-  }
+        ),
+        actions: [
+          TextButton(
+            onPressed: () {
+              setState(() {
+                backgroundImage = 'web/assets/pureland.png';
+              });
+              Navigator.of(context).pop();
+            },
+            child: Text('是'),
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: Text('否'),
+          ),
+        ],
+      );
+    },
+  );
+}
+
 
   void incrementMerit() {
     setState(() {

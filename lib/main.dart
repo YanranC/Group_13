@@ -80,7 +80,14 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('日行一善，日积一德；功满三千，德满八百'),
+        title: Text(
+          '日行一善，日积一德；功满三千，德满八百',
+          style: TextStyle(
+            fontFamily: 'STXingkai',
+            fontSize: 35.0,
+          ),
+        ),
+        backgroundColor: Colors.red,
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -106,98 +113,240 @@ class _MyHomePageState extends State<MyHomePage> {
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
+                SizedBox(height: 22),
                 Row(
                   children: [
-                    Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 16.0),
-                        child: ElevatedButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => SecondPage()),
-                            );
-                          },
-                          child: Text('首充6元更换佛祖皮肤'),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.25,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 83, 131, 219),
+                          borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(25),
+                            bottomRight: Radius.circular(25),
+                          ),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                          child: Center(
+                            child: Text(
+                              '首充6元\n更换佛祖皮肤',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Color.fromARGB(255, 231, 61, 61),
+                                fontSize: 16,
+                              ),
+                            ),
+                          ),
                         ),
                       ),
                     ),
-                    Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                        child: ElevatedButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => ThirdPage()),
-                            );
-                          },
-                          child: Text('充值999元获得神仙保佑'),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.only(right: 16.0),
-                        child: ElevatedButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => FourthPage()),
-                            );
-                          },
-                          child: Text('邀请五名好友注册免费领取十八金身罗汉，功德×1.25'),
-                        ),
-                      ),
+                    SizedBox(width: 16.0),
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => SecondPage()),
+                        );
+                      },
+                      child: Text('去更换！'),
                     ),
                   ],
                 ),
-                SizedBox(height: 16),
+                SizedBox(height: 20),
                 Row(
                   children: [
-                    Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 16.0),
-                        child: ElevatedButton(
-                          onPressed: () {
-                            changeBackgroundImage(); // 更换背景图像
-                          },
-                          child: Text('充值68元更换西天极乐世界背景装饰'),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.25,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.yellow,
+                          borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(25),
+                            bottomRight: Radius.circular(25),
+                          ),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                          child: Center(
+                            child: Text(
+                              '充值999元\n获得神仙保佑',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 16,
+                              ),
+                            ),
+                          ),
                         ),
                       ),
                     ),
-                    Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                        child: ElevatedButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => FifthPage()),
-                            );
-                          },
-                          child: Text('一元求姻缘'),
+                    SizedBox(width: 16.0),
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => ThirdPage()),
+                        );
+                      },
+                      child: Text('去获取！'),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 18),
+                Row(
+                  children: [
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.25,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.green,
+                          borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(25),
+                            bottomRight: Radius.circular(25),
+                          ),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                          child: Center(
+                            child: Text(
+                              '邀请五名好友注册\n免费领取十八金身罗汉，功德×1.25',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16,
+                              ),
+                            ),
+                          ),
                         ),
                       ),
                     ),
-                    Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.only(right: 16.0),
-                        child: ElevatedButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => SixthPage()),
-                            );
-                          },
-                          child: Text('今日特价：期末周大学生专享考试加分福利！'),
+                    SizedBox(width: 16.0),
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => FourthPage()),
+                        );
+                      },
+                      child: Text('去邀请！'),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 15),
+                Row(
+                  children: [
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.25,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.red,
+                          borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(25),
+                            bottomRight: Radius.circular(25),
+                          ),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                          child: Center(
+                            child: Text(
+                              '充值68元更换\n西天极乐世界背景装饰',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Colors.yellow,
+                                fontSize: 16,
+                              ),
+                            ),
+                          ),
                         ),
                       ),
+                    ),
+                    SizedBox(width: 16.0),
+                    ElevatedButton(
+                      onPressed: () {
+                        changeBackgroundImage(); // 更换背景图像
+                      },
+                      child: Text('去更换！'),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 10),
+                Row(
+                  children: [
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.25,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.pink,
+                          borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(25),
+                            bottomRight: Radius.circular(25),
+                          ),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 50.0),
+                          child: Center(
+                            child: Text(
+                              '一元求姻缘\n速速点我',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: 16.0),
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => FifthPage()),
+                        );
+                      },
+                      child: Text('去求缘！'),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 5),
+                Row(
+                  children: [
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.25,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 93, 182, 93),
+                          borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(25),
+                            bottomRight: Radius.circular(25),
+                          ),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                          child: Center(
+                            child: Text(
+                              '今日特价\n期末周大学生专享考试加分福利！',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Color.fromARGB(255, 245, 239, 239),
+                                fontSize: 16,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: 16.0),
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => SixthPage()),
+                        );
+                      },
+                      child: Text('去加分！'),
                     ),
                   ],
                 ),
